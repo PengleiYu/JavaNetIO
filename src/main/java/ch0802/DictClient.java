@@ -1,9 +1,10 @@
-package dict;
+package ch0802;
 
 import java.io.*;
 import java.net.Socket;
 
 /**
+ * socket写入服务器
  * Created by yupenglei on 18/1/2.
  */
 public class DictClient {
