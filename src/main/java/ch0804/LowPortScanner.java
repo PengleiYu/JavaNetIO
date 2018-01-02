@@ -1,7 +1,9 @@
 package ch0804;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketAddress;
 import java.net.UnknownHostException;
 
 /**
@@ -11,16 +13,21 @@ import java.net.UnknownHostException;
  */
 public class LowPortScanner {
     public static void main(String[] args) {
-        String host = "localhost";
-        for (int i = 0; i < 1024; i++) {
+        String host = "www.baidu.com";
+        for (int i = 1; i < 1024; i++) {
             try {
-                Socket socket = new Socket(host, i);
+                //构造但不连接
+                //似乎很多网络服务器防扫描，不返回tcp响应，所以连接时指定timeout
+                Socket socket = new Socket();
+                SocketAddress address= new InetSocketAddress(host,i);
+                socket.connect(address,1000);
                 System.out.println("There is a server on port " + i + " of " + host);
                 socket.close();
             } catch (UnknownHostException e) {
                 e.printStackTrace();
             } catch (IOException e) {
-                System.err.println("There is not a server on port " + i + " of " + host);
+                System.err.println("There is not a server on port " + i + " of " + host + "\n" +
+                        e.getLocalizedMessage());
             }
         }
     }
