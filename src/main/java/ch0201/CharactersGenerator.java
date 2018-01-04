@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
+ * 字符生成器协定
  * 基本的流操作
  * Created by yupenglei on 18/1/3.
  */
-public class BaseStream {
+public class CharactersGenerator {
     private static final int firstPrintableCharacter = 33;
     private static final int numberOfPrintableCharacter = 94;
     private static final int numberOfCharactersPerLine = 72;
