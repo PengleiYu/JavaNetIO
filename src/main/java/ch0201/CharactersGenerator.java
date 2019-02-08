@@ -18,6 +18,7 @@ public class CharactersGenerator {
                 firstPrintableCharacter;
     }
 
+    // 字符写入
     public static void generateCharacters1(OutputStream out) throws IOException {
         int start = firstPrintableCharacter;
         while (true) {
@@ -30,6 +31,7 @@ public class CharactersGenerator {
         }
     }
 
+    // 写入数组
     public static void generateCharacters2(OutputStream out) throws IOException {
         int start = firstPrintableCharacter;
         byte[] line = new byte[numberOfCharactersPerLine + 2];
@@ -44,7 +46,6 @@ public class CharactersGenerator {
         }
     }
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws IOException {
     }
 }
